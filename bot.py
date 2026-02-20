@@ -11,8 +11,8 @@ import uvicorn
 
 from database import init_db, create_ticket, get_ticket_by_group_message, decrypt_user_id
 
-TOKEN = os.getenv("8350395861:AAE_MSkINkAjan30pO-4vTEK1wsjQYmrdm4")
-GROUP_ID = int(os.getenv("-1003703432478"))
+TOKEN = os.getenv("BOT_TOKEN")
+GROUP_ID = int(os.getenv("GROUP_ID"))
 
 bot = Bot(
     token=TOKEN,
@@ -28,9 +28,7 @@ SPAM_DELAY = 10
 
 @dp.message(CommandStart())
 async def start_handler(message: Message):
-    await message.answer("""
-    🙏 Добро пожаловать в молитвенный бот! 
-    Напишите ниже вашу молитвенную нужду или свидетельство.""")
+    await message.answer("Напишите сообщение. Вам будет присвоен номер обращения.")
 
 
 @dp.message()
@@ -43,7 +41,7 @@ async def handle_messages(message: Message):
 
         if user_id in last_message_time:
             if now - last_message_time[user_id] < SPAM_DELAY:
-               # await message.answer("⏳ Подождите немного перед следующим сообщением.")
+                await message.answer("⏳ Подождите немного перед следующим сообщением.")
                 return
 
         last_message_time[user_id] = now
@@ -69,7 +67,7 @@ async def handle_messages(message: Message):
                 text=f"🎫 Обращение #{ticket_number}"
             )
 
-        await message.answer(f"✅ Ваше сообщение отправлено.")
+        await message.answer(f"✅ Ваше обращение №{ticket_number} отправлено.")
 
 
     elif message.chat.type in ["group", "supergroup"]:
