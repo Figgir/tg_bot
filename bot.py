@@ -64,7 +64,7 @@ async def get_ticket_by_group_message(group_message_id):
 @dp.message(CommandStart())
 async def start_handler(message: types.Message):
     await message.answer("""
-🙏  Добро пожаловать в молитвенный бот!
+    Добро пожаловать в молитвенный бот🙏  
     Напишите ниже ваше сообщение,
     мы гарантируем аннонимность
     """)
