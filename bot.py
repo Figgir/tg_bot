@@ -63,7 +63,11 @@ async def get_ticket_by_group_message(group_message_id):
 # -------------------- Обработчики --------------------
 @dp.message(CommandStart())
 async def start_handler(message: types.Message):
-    await message.answer("Напишите сообщение")
+    await message.answer("""
+    🙏 Добро пожаловать в молитвенный бот!
+    Напишите вашу молитвенную нужду или свидетельство.
+    Все сообщения анонимные.
+    """)
 
 @dp.message()
 async def handle_messages(message: types.Message):
@@ -115,7 +119,7 @@ async def handle_messages(message: types.Message):
        #   text=f"🎫 Обращение #{ticket_number}"
        # )
 
-        await message.answer(f"✅ Ваше обращение отправлено.")
+         # await message.answer(f"✅ Ваше обращение отправлено.")
 
     elif message.chat.type in ["group", "supergroup"]:
         # -------------------- Ответ админа --------------------
