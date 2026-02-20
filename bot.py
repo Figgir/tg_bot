@@ -11,8 +11,8 @@ import uvicorn
 
 from database import init_db, create_ticket, get_ticket_by_group_message, decrypt_user_id
 
-TOKEN = os.getenv("BOT_TOKEN")
-GROUP_ID = int(os.getenv("GROUP_ID"))
+TOKEN = os.getenv("8350395861:AAE_MSkINkAjan30pO-4vTEK1wsjQYmrdm4")
+GROUP_ID = int(os.getenv("-1003703432478"))
 
 bot = Bot(
     token=TOKEN,
