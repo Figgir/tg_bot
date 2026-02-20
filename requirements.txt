@@ -1,6 +1,6 @@
-aiogram
-fastapi
+aiogram==3.7.0
 uvicorn
+fastapi
 aiosqlite
-cryptography
 python-dotenv
+cryptography
